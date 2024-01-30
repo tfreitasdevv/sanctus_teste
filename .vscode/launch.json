@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Django: Runserver",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/manage.py",
+        "args": [
+          "runserver",
+          "8000"
+        ],
+        "django": true,
+        "stopOnEntry": false,
+        "cwd": "${workspaceFolder}",
+        "program": "${workspaceFolder}/manage.py",
+        "env": {},
+        "envFile": "${workspaceFolder}/.env",
+        "debugOptions": [
+          "WaitOnAbnormalExit",
+          "WaitOnNormalExit",
+          "RedirectOutput"
+        ]
+      },
+      {
+        "name": "Django: Makemigrations",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/manage.py",
+        "args": [
+          "makemigrations"
+        ],
+        "django": true,
+        "stopOnEntry": false,
+        "cwd": "${workspaceFolder}",
+        "program": "${workspaceFolder}/manage.py",
+        "env": {},
+        "envFile": "${workspaceFolder}/.env",
+        "debugOptions": [
+          "WaitOnAbnormalExit",
+          "WaitOnNormalExit",
+          "RedirectOutput"
+        ]
+      },
+      {
+        "name": "Django: Migrate",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/manage.py",
+        "args": [
+          "migrate"
+        ],
+        "django": true,
+        "stopOnEntry": false,
+        "cwd": "${workspaceFolder}",
+        "program": "${workspaceFolder}/manage.py",
+        "env": {},
+        "envFile": "${workspaceFolder}/.env",
+        "debugOptions": [
+          "WaitOnAbnormalExit",
+          "WaitOnNormalExit",
+          "RedirectOutput"
+        ]
+      }
+    ]
+  }
+  
