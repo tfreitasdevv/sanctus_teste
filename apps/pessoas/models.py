@@ -18,5 +18,14 @@ class Pessoa(models.Model):
 
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
 
+    class Meta:
+        abstract=True
+
+class Funcionario(Pessoa):
+    funcao = models.CharField(max_length=360)
+    data_admissao = models.DateField()
+    data_demissao = models.DateField(null=True, blank=True)
+
     def __str__(self):
         return self.nome
+    
