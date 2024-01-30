@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "apps.igrejas",
     "apps.pessoas",
     "apps.pastorais",
+    "apps.geral",
 ]
 
 MIDDLEWARE = [
