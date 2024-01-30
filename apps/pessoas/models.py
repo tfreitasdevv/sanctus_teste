@@ -42,3 +42,11 @@ class Clero(Pessoa):
 
     def __str__(self):
         return f"{self.nome} - {self.funcao}"
+    
+
+class Paroquiano(Pessoa):
+    batizado = models.BooleanField(default=False)
+    data_cadastro = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.nome
