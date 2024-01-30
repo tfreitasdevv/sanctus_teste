@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "apps.igrejas",
     "apps.pessoas",
+    "apps.pastorais",
 ]
 
 MIDDLEWARE = [
