@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from apps.geral.models import FuncoesFuncionarios, FuncoesClero
+from apps.igrejas.models import Igreja
 
 
 class Pessoa(models.Model):
@@ -18,6 +19,7 @@ class Pessoa(models.Model):
     data_nascimento = models.DateField()
 
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    igreja = models.ForeignKey(Igreja, on_delete=models.CASCADE)
 
     class Meta:
         abstract=True
