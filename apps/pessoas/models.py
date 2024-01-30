@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from apps.geral.models import FuncoesFuncionarios
+from apps.geral.models import FuncoesFuncionarios, FuncoesClero
 
 
 class Pessoa(models.Model):
@@ -22,6 +22,7 @@ class Pessoa(models.Model):
     class Meta:
         abstract=True
 
+
 class Funcionario(Pessoa):
     funcao = models.ForeignKey(FuncoesFuncionarios,on_delete=models.CASCADE)
     #funcao = models.CharField(max_length=360)
@@ -31,3 +32,11 @@ class Funcionario(Pessoa):
     def __str__(self):
         return f"{self.nome} - {self.funcao}"
     
+
+class Clero(Pessoa):
+    funcao = models.ForeignKey(FuncoesClero,on_delete=models.CASCADE)
+    data_inicio = models.DateField()
+    data_saida = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.nome} - {self.funcao}"
