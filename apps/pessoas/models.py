@@ -12,11 +12,11 @@ class Pessoa(models.Model):
     ]
 
     nome = models.CharField(max_length=360)
-    #usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     cpf = models.CharField(max_length=11, unique=True)
     genero = models.CharField(max_length=1, choices=OPCOES_GENERO)
     email = models.EmailField()
     data_nascimento = models.DateField()
+    telefone = models.CharField(max_length=30)
 
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     igreja = models.ForeignKey(Igreja, on_delete=models.CASCADE)
@@ -27,7 +27,6 @@ class Pessoa(models.Model):
 
 class Funcionario(Pessoa):
     funcao = models.ForeignKey(FuncoesFuncionarios,on_delete=models.CASCADE)
-    #funcao = models.CharField(max_length=360)
     data_admissao = models.DateField()
     data_demissao = models.DateField(null=True, blank=True)
 
