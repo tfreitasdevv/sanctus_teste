@@ -22,13 +22,18 @@ class Pessoa(models.Model):
     igreja = models.ForeignKey(Igreja, on_delete=models.CASCADE)
 
     class Meta:
-        abstract=True
+        abstract = True
+        ordering = ['nome']
 
 
 class Funcionario(Pessoa):
     funcao = models.ForeignKey(FuncoesFuncionarios,on_delete=models.CASCADE)
     data_admissao = models.DateField()
     data_demissao = models.DateField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['nome']
+        verbose_name_plural = 'Funcionarios'
 
     def __str__(self):
         return f"{self.nome} - {self.funcao}"
@@ -39,6 +44,10 @@ class Clero(Pessoa):
     data_inicio = models.DateField()
     data_saida = models.DateField(null=True, blank=True)
 
+    class Meta:
+        ordering = ['nome']
+        verbose_name_plural = 'Clero'
+
     def __str__(self):
         return f"{self.nome} - {self.funcao}"
     
@@ -46,6 +55,10 @@ class Clero(Pessoa):
 class Paroquiano(Pessoa):
     batizado = models.BooleanField(default=False)
     data_cadastro = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['nome']
+        verbose_name_plural = 'Paroquianos'
 
     def __str__(self):
         return self.nome
