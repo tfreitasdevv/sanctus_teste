@@ -34,7 +34,7 @@ class EnderecoFuncionario(models.Model):
     estado = models.CharField(max_length=360)
 
     def __str__(self):
-        return self.funcionario
+        return self.cep
 
 
 class EnderecoClero(models.Model):
@@ -48,7 +48,7 @@ class EnderecoClero(models.Model):
     estado = models.CharField(max_length=360)
 
     def __str__(self):
-        return self.clero
+        return self.cep
 
 
 class EnderecoParoquiano(models.Model):
@@ -62,7 +62,7 @@ class EnderecoParoquiano(models.Model):
     estado = models.CharField(max_length=360)
 
     def __str__(self):
-        return self.paroquiano
+        return self.cep
 
 
 class EnderecoIgreja(models.Model):
@@ -76,4 +76,4 @@ class EnderecoIgreja(models.Model):
     estado = models.CharField(max_length=360)
 
     def __str__(self):
-        return self.igreja
+        return self.cep
