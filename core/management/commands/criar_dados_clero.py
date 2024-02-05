@@ -12,7 +12,7 @@ fake = Faker(['pt_BR', 'pt-BR'])
 def get_cleros():
     nome = fake.first_name()
     cpf = fake.unique.random_number(digits=11)
-    genero = fake.random_element(elements=('F', 'M'))
+    genero = fake.random_element(elements=('M', 'M'))
     email = fake.email()
     data_nascimento = fake.date_of_birth(minimum_age=18, maximum_age=65)
     telefone = fake.phone_number()
