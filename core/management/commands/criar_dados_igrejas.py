@@ -18,8 +18,8 @@ def get_igrejas():
     estado = fake.state_abbr()
 
     igreja_data = dict(
-        nome = nome,
-        telefone = telefone,
+        nome=nome,
+        telefone=telefone,
     )
 
     enderecoigreja_data = dict(
@@ -35,24 +35,22 @@ def get_igrejas():
     return igreja_data, enderecoigreja_data
 
 def create_igrejas():
-    lista_aux = []
+    igrejas_to_create = []
+    enderecos_to_create = []
+
     for _ in range(5):
         igreja_data, enderecoigreja_data = get_igrejas()
 
-        # Criação da Igreja
         igreja = Igreja(**igreja_data)
-        igreja.save()
-
-        # Criação do EnderecoIgreja relacionado
         enderecoigreja_data['igreja'] = igreja
-        endereco = EnderecoIgreja(**enderecoigreja_data)
-        endereco.save()
 
-        print(igreja_data, enderecoigreja_data)
-        lista_aux.append(igreja)
-    return lista_aux
-    # Igreja.objects.bulk_create(lista_aux)
+        igrejas_to_create.append(igreja)
+        enderecos_to_create.append(EnderecoIgreja(**enderecoigreja_data))
 
+    print(igrejas_to_create, enderecos_to_create)
+    
+    Igreja.objects.bulk_create(igrejas_to_create)
+    EnderecoIgreja.objects.bulk_create(enderecos_to_create)
 
 class Command(BaseCommand):
     help = 'Criar dados fictícios de Igrejas com seus endereços.'
