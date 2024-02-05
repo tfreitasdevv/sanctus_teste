@@ -33,9 +33,12 @@ class EnderecoFuncionario(models.Model):
     cidade = models.CharField(max_length=360)
     estado = models.CharField(max_length=360)
 
+    def __str__(self):
+        return self.funcionario
+
 
 class EnderecoClero(models.Model):
-    funcionario = models.OneToOneField('pessoas.Clero', on_delete=models.CASCADE)
+    clero = models.OneToOneField('pessoas.Clero', on_delete=models.CASCADE)
     cep = models.CharField(max_length=8)
     logradouro = models.CharField(max_length=200)
     numero = models.CharField(max_length=15)
@@ -43,10 +46,13 @@ class EnderecoClero(models.Model):
     bairro = models.CharField(max_length=360)
     cidade = models.CharField(max_length=360)
     estado = models.CharField(max_length=360)
+
+    def __str__(self):
+        return self.clero
 
 
 class EnderecoParoquiano(models.Model):
-    funcionario = models.OneToOneField('pessoas.Paroquiano', on_delete=models.CASCADE)
+    paroquiano = models.OneToOneField('pessoas.Paroquiano', on_delete=models.CASCADE)
     cep = models.CharField(max_length=8)
     logradouro = models.CharField(max_length=200)
     numero = models.CharField(max_length=15)
@@ -54,6 +60,9 @@ class EnderecoParoquiano(models.Model):
     bairro = models.CharField(max_length=360)
     cidade = models.CharField(max_length=360)
     estado = models.CharField(max_length=360)
+
+    def __str__(self):
+        return self.paroquiano
 
 
 class EnderecoIgreja(models.Model):
@@ -65,3 +74,6 @@ class EnderecoIgreja(models.Model):
     bairro = models.CharField(max_length=360)
     cidade = models.CharField(max_length=360)
     estado = models.CharField(max_length=360)
+
+    def __str__(self):
+        return self.igreja
