@@ -55,7 +55,7 @@ def create_igrejas():
 
 
 class Command(BaseCommand):
-    help = 'Create data.'
+    help = 'Criar dados fictícios de Igrejas com seus endereços.'
 
     def handle(self, *args, **options):
         create_igrejas()
