@@ -25,7 +25,7 @@ def create_sacramentos():
     paroquiano = Paroquiano.objects.all()
     clero = Clero.objects.all()
 
-    for _ in range(20):
+    for _ in range(50):
         batismo_data = {
             'data': make_aware(fake.date_time_this_month()),
             'batizado': random.choice(paroquiano),
