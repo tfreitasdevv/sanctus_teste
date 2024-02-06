@@ -10,13 +10,13 @@ from apps.igrejas.models import Igreja
 fake = Faker(['pt_BR', 'pt-BR'])
 
 def get_cleros():
-    nome = fake.first_name()
+    nome = fake.name_male()
     cpf = fake.unique.random_number(digits=11)
     genero = fake.random_element(elements=('M', 'M'))
     email = fake.email()
-    data_nascimento = fake.date_of_birth(minimum_age=18, maximum_age=65)
+    data_nascimento = fake.date_of_birth(minimum_age=30, maximum_age=75)
     telefone = fake.phone_number()
-    cep = fake.building_number()
+    cep = fake.postcode()
     logradouro = fake.street_name()
     numero = fake.building_number()
     complemento = fake.street_name()
@@ -24,7 +24,7 @@ def get_cleros():
     cidade = fake.city()
     estado = fake.state_abbr()
     #funcao = FuncoesClero.objects.get(nome='Padre') # Para definir manualmente a Função
-    data_inicio = fake.date_of_birth(minimum_age=18, maximum_age=65)
+    data_inicio = fake.date_this_decade()
     # igreja = Igreja.objects.get(nome='Alpes') # Para definir manualmente a Igreja
 
     clero_data = dict(
@@ -57,7 +57,7 @@ def create_cleros():
     igrejas = Igreja.objects.all()
     funcoes = FuncoesClero.objects.all()
 
-    for _ in range(5):
+    for _ in range(10):
         clero_data, endereco_clero_data = get_cleros()
         username = fake.user_name()
         password = fake.password()

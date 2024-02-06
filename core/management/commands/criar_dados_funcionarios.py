@@ -11,13 +11,13 @@ from apps.igrejas.models import Igreja
 fake = Faker(['pt_BR', 'pt-BR'])
 
 def get_funcionarios():
-    nome = fake.first_name()
+    nome = fake.name()
     cpf = fake.unique.random_number(digits=11)
     genero = fake.random_element(elements=('F', 'M'))
     email = fake.email()
     data_nascimento = fake.date_of_birth(minimum_age=18, maximum_age=65)
     telefone = fake.phone_number()
-    cep = fake.building_number()
+    cep = fake.postcode()
     logradouro = fake.street_name()
     numero = fake.building_number()
     complemento = fake.street_name()
@@ -25,7 +25,7 @@ def get_funcionarios():
     cidade = fake.city()
     estado = fake.state_abbr()
     #funcao = FuncoesFuncionarios.objects.get(nome='Zelador') # Para definir manualmente a Igreja
-    data_admissao = fake.date_of_birth(minimum_age=18, maximum_age=65)
+    data_admissao = fake.date_this_year()
     # igreja = Igreja.objects.get(nome='Alpes') # Para definir manualmente a Igreja
 
     funcionario_data = dict(
@@ -58,7 +58,7 @@ def create_funcionarios():
     igrejas = Igreja.objects.all()
     funcoes = FuncoesFuncionarios.objects.all()
 
-    for _ in range(5):
+    for _ in range(20):
         funcionario_data, endereco_funcionario_data = get_funcionarios()
         username = fake.user_name()
         password = fake.password()

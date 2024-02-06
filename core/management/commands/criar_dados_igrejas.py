@@ -9,7 +9,7 @@ fake = Faker(['pt_BR', 'pt-BR'])
 def get_igrejas():
     nome = fake.bairro()
     telefone = fake.cellphone_number()
-    cep = fake.building_number()
+    cep = fake.postcode()
     logradouro = fake.street_name()
     numero = fake.building_number()
     complemento = fake.street_name()

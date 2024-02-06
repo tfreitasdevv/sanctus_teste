@@ -10,20 +10,20 @@ from apps.igrejas.models import Igreja
 fake = Faker(['pt_BR', 'pt-BR'])
 
 def get_paroquianos():
-    nome = fake.first_name()
+    nome = fake.name()
     cpf = fake.unique.random_number(digits=11)
     genero = fake.random_element(elements=('F', 'M'))
     email = fake.email()
     data_nascimento = fake.date_of_birth(minimum_age=18, maximum_age=65)
     telefone = fake.phone_number()
-    cep = fake.building_number()
+    cep = fake.postcode()
     logradouro = fake.street_name()
     numero = fake.building_number()
     complemento = fake.street_name()
     bairro = fake.bairro()
     cidade = fake.city()
     estado = fake.state_abbr()
-    data_cadastro = fake.date_of_birth(minimum_age=18, maximum_age=65)
+    data_cadastro = fake.date_this_year()
     batizado = fake.random_element(elements=(True, False))
 
     paroquiano_data = dict(
@@ -54,7 +54,7 @@ def create_paroquianos():
     enderecos_paroquianos_to_create = []
     igrejas = Igreja.objects.all()
 
-    for _ in range(40):
+    for _ in range(50):
         paroquiano_data, endereco_paroquiano_data = get_paroquianos()
         username = fake.user_name()
         password = fake.password()
