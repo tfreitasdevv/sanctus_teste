@@ -54,7 +54,7 @@ def create_paroquianos():
     enderecos_paroquianos_to_create = []
     igrejas = Igreja.objects.all()
 
-    for _ in range(20):
+    for _ in range(40):
         paroquiano_data, endereco_paroquiano_data = get_paroquianos()
         username = fake.user_name()
         password = fake.password()
