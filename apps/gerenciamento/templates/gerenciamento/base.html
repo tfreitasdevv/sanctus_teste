@@ -1,13 +1,17 @@
-<!-- {% load static %} -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base</title>
+    <title>Página Inicial</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/estilo.css' %}"> -->
 </head>
 <body>
-    <h3>Base</h3>
+    {% block main %}
+        <h3>Conteúdo do Block Main</h3>
+        <p>Se esse conteúdo está aparecendo é porque o Block Main não foi sobrescrito no template</p>
+    {% endblock main %}
 </body>
 </html>
