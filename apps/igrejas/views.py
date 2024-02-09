@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from .models import Igreja
 
-# Create your views here.
+
+class IgrejaCreate(CreateView):
+    model = Igreja
+    fields = ['nome']
